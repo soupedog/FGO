@@ -20,10 +20,10 @@ def check_and_eat_apple(apple, previous_number, max_number) -> int:
     if target:
         if previous_number >= max_number:
             raise Exception("已到达最大苹果限制 %s" % previous_number)
-
+        sleep(1)
         touch(target)
         conform_button = wait(Template(r"tpl1657430567355.png", record_pos=(0.155, 0.159), resolution=(1280, 720)))
-
+        sleep(1)
         touch(conform_button)
 
         result = previous_number + 1
@@ -172,13 +172,15 @@ def attack_single_ultimate_combo(target):
 def close_result():
     qian_ban = wait(Template(r"tpl1657444470564.png", record_pos=(-0.351, -0.134), resolution=(1280, 720)), timeout=60,
                     interval=5)
-
+    sleep(1)
     touch(qian_ban)
     exp = wait(Template(r"tpl1657444527697.png", record_pos=(0.08, -0.118), resolution=(1280, 720)))
-
+    sleep(1)
     touch(exp)
     next_button = wait(Template(r"tpl1657434537493.png", record_pos=(0.366, 0.217), resolution=(1280, 720)))
+    sleep(1)
     touch(next_button)
     continue_button = wait(Template(r"tpl1657434574237.png", record_pos=(0.155, 0.16), resolution=(1280, 720)))
+    sleep(1)
     touch(continue_button)
 

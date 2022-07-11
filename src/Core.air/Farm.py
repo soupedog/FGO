@@ -9,7 +9,7 @@ if not cli_setup():
     auto_setup(__file__,
                logdir=True,
                devices=[
-                   "android://127.0.0.1:5037/127.0.0.1:49735?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+                   "android://127.0.0.1:5037/127.0.0.1:58866?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
                ],
                project_root="F:/Airtest/FGO/src/Core.air"
                )
@@ -47,7 +47,7 @@ def tu3():
 
 
 current_number = 0
-max_number = 10
+max_number = 9
 while True:
     tu1()
 
