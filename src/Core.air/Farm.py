@@ -9,7 +9,7 @@ if not cli_setup():
     auto_setup(__file__,
                logdir=True,
                devices=[
-                   "android://127.0.0.1:5037/127.0.0.1:58866?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+                   "android://127.0.0.1:5037/127.0.0.1:62892?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
                ],
                project_root="F:/Airtest/FGO/src/Core.air"
                )
@@ -19,6 +19,7 @@ def tu1():
     Core.block_to_area_ready()
 
     Core.skill(1, 1, None)
+    Core.skill(1, 3, None)
 
     Core.skill(2, 1, None)
     Core.skill(2, 2, 1)
@@ -47,7 +48,7 @@ def tu3():
 
 
 current_number = 0
-max_number = 9
+max_number = 5
 while True:
     tu1()
 

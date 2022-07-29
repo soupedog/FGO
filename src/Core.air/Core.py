@@ -33,14 +33,14 @@ def check_and_eat_apple(apple, previous_number, max_number) -> int:
 
 def select_friend():
     while True:
-        friend = exists(Template(r"tpl1657371738779.png", threshold=0.8, rgb=True, record_pos=(-0.398, 0.042),
+        friend = exists(Template(r"I_C呆_量子.png", threshold=0.8, rgb=True, record_pos=(-0.398, 0.042),
                                  resolution=(1280, 720)))
         if friend:
             touch(friend)
             break
         else:
             refresh_button = exists(
-                Template(r"tpl1657431080597.png", threshold=0.8, rgb=True, record_pos=(0.164, -0.18),
+                Template(r"I_好友列表更新.png", threshold=0.8, rgb=True, record_pos=(0.164, -0.18),
                          resolution=(1280, 720)))
             if refresh_button:
                 touch(refresh_button)
