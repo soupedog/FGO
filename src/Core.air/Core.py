@@ -6,7 +6,7 @@ from airtest.core.api import *
 from entity.Apple import Apple
 
 
-def check_and_eat_apple(apple, previous_number, max_number) -> int:
+def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
     if apple == Apple.GOLDEN:
         target = exists(Template(r"tpl1657429122818.png", threshold=0.8, rgb=True, record_pos=(-0.209, -0.032),
                                  resolution=(1280, 720)))
@@ -33,15 +33,14 @@ def check_and_eat_apple(apple, previous_number, max_number) -> int:
 
 def select_friend():
     while True:
-        friend = exists(Template(r"I_C呆_量子.png", threshold=0.8, rgb=True, record_pos=(-0.398, 0.042),
-                                 resolution=(1280, 720)))
+        friend = exists(Template(r"I_杀狐_羁绊.png", record_pos=(-0.379, -0.057), resolution=(1280, 720)))
+
         if friend:
             touch(friend)
             break
         else:
-            refresh_button = exists(
-                Template(r"I_好友列表更新.png", threshold=0.8, rgb=True, record_pos=(0.164, -0.18),
-                         resolution=(1280, 720)))
+            refresh_button = exists(Template(r"I_好友列表更新.png", record_pos=(0.227, -0.18), resolution=(1280, 720)))
+
             if refresh_button:
                 touch(refresh_button)
                 conform_button = wait(
@@ -183,4 +182,3 @@ def close_result():
     continue_button = wait(Template(r"tpl1657434574237.png", record_pos=(0.155, 0.16), resolution=(1280, 720)))
     sleep(1)
     touch(continue_button)
-
