@@ -51,8 +51,8 @@ def select_friend():
 
 
 def block_to_area_ready():
-    wait(Template(r"tpl1657024928260.png", record_pos=(0.384, 0.15), resolution=(1280, 720)), timeout=60, interval=5)
-    sleep(5)
+    wait(Template(r"tpl1657024928260.png", record_pos=(0.384, 0.15), resolution=(1280, 720)), timeout=60, interval=2)
+    sleep(2)
     print("关卡就绪", flush=True)
 
 
@@ -170,7 +170,7 @@ def attack_single_ultimate_combo(target):
 
 def close_result():
     qian_ban = wait(Template(r"tpl1657444470564.png", record_pos=(-0.351, -0.134), resolution=(1280, 720)), timeout=60,
-                    interval=5)
+                    interval=2)
     sleep(1)
     touch(qian_ban)
     exp = wait(Template(r"tpl1657444527697.png", record_pos=(0.08, -0.118), resolution=(1280, 720)))
