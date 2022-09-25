@@ -9,7 +9,7 @@ if not cli_setup():
     auto_setup(__file__,
                logdir=False,
                devices=[
-                   "android://127.0.0.1:5037/127.0.0.1:55883?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+                   "android://127.0.0.1:5037/127.0.0.1:57310?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
                ],
                project_root="F:/Airtest/FGO/src/Core.air"
                )
@@ -55,6 +55,15 @@ def 大英雄一面():
     Core.start_attack()
     Core.attack_single_ultimate_combo(1)
 
+def 哈贝喵一面():
+    Core.block_to_area_ready()
+
+    Core.skill(1, 2, None)
+    Core.skill(1, 3, 2)
+
+    Core.start_attack()
+    Core.attack_single_ultimate_combo(1)
+
 def 芭娜娜杀狐二面():
     Core.block_to_area_ready()
 
@@ -62,6 +71,21 @@ def 芭娜娜杀狐二面():
     Core.skill(1, 2, None)
 
     Core.skill(2, 3, 1)
+    Core.skill(3, 3, 1)
+
+    Core.start_attack()
+    Core.attack_single_ultimate_combo(1)
+
+def 棉被杀狐二面():
+    Core.block_to_area_ready()
+
+    Core.skill(1, 1, None)
+    Core.skill(1, 2, None)
+    Core.skill(1, 3, None)
+
+    Core.skill(2, 3, 1)
+
+    Core.skill(3, 1, 1)
     Core.skill(3, 3, 1)
 
     Core.start_attack()
@@ -76,6 +100,20 @@ def 芭娜娜杀狐三面():
     # Core.skill(3, 2, 1)
 
     Core.skill(1, 1, None)
+
+    Core.start_attack()
+    Core.attack_single_ultimate_combo(1)
+
+def 棉被杀狐三面():
+    Core.block_to_area_ready()
+
+    Core.skill(2, 1, 1)
+
+    Core.skill(1, 1, None)
+    Core.skill(1, 2, None)
+    Core.skill(1, 3, None)
+
+    Core.master_skill(2, 1)
 
     Core.start_attack()
     Core.attack_single_ultimate_combo(1)
@@ -117,9 +155,28 @@ def 芭娜娜双杀狐通用(max_number):
 
         Core.select_friend()
 
+def 棉被双杀狐通用(max_number):
+    current_number = 0
+
+    while True:
+        哈贝喵一面()
+
+        棉被杀狐二面()
+
+        棉被杀狐三面()
+
+        sleep(25)
+
+        Core.close_result()
+
+        current_number = Core.check_and_eat_apple(Apple.GOLDEN, current_number, max_number)
+
+        Core.select_friend()
+
 
 
 # 程序入口
-max_number = 0
+max_number = 4
 
-芭娜娜双杀狐通用(max_number)
+# 芭娜娜双杀狐通用(max_number)
+棉被双杀狐通用(max_number)
