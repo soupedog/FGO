@@ -50,6 +50,13 @@ def select_friend():
                 sleep(8)
 
 
+def skip_animation():
+    sleep(0.5)
+    touch((10, 200), times=2)
+    sleep(0.25)
+    touch((10, 200), times=2)
+
+
 def block_to_area_ready():
     wait(Template(r"指令卡_开始攻击.png", record_pos=(0.384, 0.15), resolution=(1280, 720)), timeout=60, interval=2)
     sleep(2)
@@ -70,3 +77,4 @@ def close_result():
     continue_button = wait(Template(r"结算_连续出击.png", record_pos=(0.155, 0.16), resolution=(1280, 720)))
     sleep(1)
     touch(continue_button)
+
