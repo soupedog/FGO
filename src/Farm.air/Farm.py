@@ -1,4 +1,6 @@
 # sys.path.append("/Core.air")
+import logging
+
 from airtest.cli.parser import cli_setup
 from airtest.core.api import *
 
@@ -15,7 +17,9 @@ if not cli_setup():
                ],
                project_root="F:/Airtest/FGO/src/Farm.air"
                )
-
+# 最低输出 info 级别日志
+logger = logging.getLogger("airtest")
+logger.setLevel(logging.INFO)
 
 def start_farm(max_apple_number):
     current_number = 0
