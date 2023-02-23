@@ -78,7 +78,7 @@ def block_to_area_ready():
 
 
 def close_result():
-    qian_ban = wait(Template(r"结算_羁绊.png", record_pos=(-0.351, -0.134), resolution=(1280, 720)), timeout=60,
+    qian_ban = wait(Template(r"结算_牵绊.png", record_pos=(-0.351, -0.134), resolution=(1280, 720)), timeout=60,
                     interval=2)
     sleep(1)
     touch(qian_ban)
