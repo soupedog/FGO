@@ -4,6 +4,7 @@ __author__ = "Xavier"
 from airtest.core.api import *
 
 from entity.Apple import Apple
+from entity.Friend import Friend
 
 
 def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
@@ -31,10 +32,23 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
     return result
 
 
-def select_friend():
+def select_friend(friend: Friend):
     while True:
-        friend = exists(
-            Template(r"DL_C呆_最终_量子.png", threshold=0.85, rgb=True, record_pos=(-0.379, -0.057), resolution=(1280, 720)))
+        if friend == Friend.C呆_最终_牵绊:
+            friend = exists(
+                Template(r"DL_C呆_最终_牵绊.png", threshold=0.85, rgb=True, record_pos=(-0.379, -0.057),
+                         resolution=(1280, 720)))
+        elif friend == Friend.C呆_最终_量子:
+            friend = exists(
+                Template(r"DL_C呆_最终_量子.png", threshold=0.85, rgb=True, record_pos=(-0.379, -0.057),
+                         resolution=(1280, 720)))
+        elif friend == Friend.杀狐_最终_牵绊:
+            friend = exists(
+                Template(r"DL_杀狐_最终_牵绊.png", threshold=0.85, rgb=True, record_pos=(-0.379, -0.057),
+                         resolution=(1280, 720)))
+        else:
+            raise Exception("好友助战类型有误")
+
         if friend:
             touch(friend)
             break
@@ -77,4 +91,3 @@ def close_result():
     continue_button = wait(Template(r"结算_连续出击.png", record_pos=(0.155, 0.16), resolution=(1280, 720)))
     sleep(1)
     touch(continue_button)
-

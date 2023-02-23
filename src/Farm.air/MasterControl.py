@@ -28,8 +28,8 @@ def master_skill(index, target):
         if target == 3:
             touch((960, 450))
 
-        # 等待技能动画
-        sleep(3.5)
+    # 等待技能动画
+    sleep(3.5)
 
 
 def change_my_servant(old_index, new_index):
