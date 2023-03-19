@@ -13,7 +13,7 @@ if not cli_setup():
     auto_setup(__file__,
                logdir=False,
                devices=[
-                   "android://127.0.0.1:5037/127.0.0.1:58134?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+                   "android://127.0.0.1:5037/127.0.0.1:64520?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
                ],
                project_root="F:/Airtest/FGO/src/Farm.air"
                )
@@ -25,15 +25,15 @@ def start_farm(max_apple_number):
     current_number = 0
 
     while True:
-        RoundTemplates.宇宙凛狗粮冲浪()
+        RoundTemplates.大英雄狂娜()
 
         sleep(25)
 
         ProcessControl.close_result()
 
-        current_number = ProcessControl.check_and_eat_apple(Apple.SILVER, current_number, max_apple_number)
+        current_number = ProcessControl.check_and_eat_apple(Apple.GOLDEN, current_number, max_apple_number)
 
-        ProcessControl.select_friend(Friend.C呆_最终_牵绊)
+        ProcessControl.select_friend(Friend.杀狐_最终_任意)
 
 
 # 程序入口
