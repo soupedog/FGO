@@ -58,6 +58,7 @@ def select_friend(friend_type: Friend):
             raise Exception("好友助战类型有误")
 
         if friend:
+            sleep(1)
             touch(friend)
             break
         else:
