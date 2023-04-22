@@ -57,13 +57,14 @@ def select_friend(friend_type: Friend):
         else:
             raise Exception("好友助战类型有误")
 
+        sleep(1)
+
         if friend:
-            sleep(1)
             touch(friend)
             break
         else:
             refresh_button = exists(Template(r"助战_列表更新.png", record_pos=(0.227, -0.18), resolution=(1280, 720)))
-
+            sleep(1)
             if refresh_button:
                 touch(refresh_button)
                 conform_button = wait(Template(r"助战_列表更新确定.png", record_pos=(0.154, 0.159), resolution=(1280, 720)))
@@ -100,3 +101,4 @@ def close_result():
     continue_button = wait(Template(r"结算_连续出击.png", record_pos=(0.155, 0.16), resolution=(1280, 720)))
     sleep(1)
     touch(continue_button)
+    sleep(1)
