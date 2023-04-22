@@ -21,11 +21,12 @@ if not cli_setup():
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.INFO)
 
+
 def start_farm(max_apple_number):
     current_number = 0
 
     while True:
-        RoundTemplates.宇宙凛狗粮冲浪()
+        RoundTemplates.摩根宝石翁双杀狐()
 
         sleep(25)
 
@@ -33,10 +34,10 @@ def start_farm(max_apple_number):
 
         current_number = ProcessControl.check_and_eat_apple(Apple.GOLDEN, current_number, max_apple_number)
 
-        ProcessControl.select_friend(Friend.C呆_最终_牵绊)
+        ProcessControl.select_friend(Friend.杀狐_最终_任意)
 
 
 # 程序入口
-max_number = 2
+max_number = 1
 
 start_farm(max_number)
