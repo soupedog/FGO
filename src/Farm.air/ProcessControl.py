@@ -29,6 +29,8 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
 
         result = previous_number + 1
         print("吃掉了一个 %s,共计已吃 %d 个苹果" % (apple.value, result))
+        # 吃完苹果，预留时间搜索好友头像
+        sleep(1)
     return result
 
 

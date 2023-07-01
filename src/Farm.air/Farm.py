@@ -13,7 +13,7 @@ if not cli_setup():
     auto_setup(__file__,
                logdir=False,
                devices=[
-                   "android://127.0.0.1:5037/127.0.0.1:58692?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+                   "android://127.0.0.1:5037/127.0.0.1:64125?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
                ],
                project_root="F:/Airtest/FGO/src/Farm.air"
                )
@@ -26,7 +26,7 @@ def start_farm(max_apple_number):
     current_number = 0
 
     while True:
-        RoundTemplates.摩根宝石翁双杀狐()
+        RoundTemplates.大英雄狂娜()
 
         sleep(25)
 
@@ -38,6 +38,6 @@ def start_farm(max_apple_number):
 
 
 # 程序入口
-max_number = 1
+max_number = 4
 
 start_farm(max_number)
