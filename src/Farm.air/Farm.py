@@ -9,6 +9,8 @@ import RoundTemplates
 from entity.Apple import Apple
 from entity.Friend import Friend
 
+# 参考文档 https://airtest.readthedocs.io/zh_CN/latest/README_MORE.html
+
 if not cli_setup():
     auto_setup(__file__,
                logdir=False,
@@ -22,6 +24,12 @@ logger = logging.getLogger("airtest")
 logger.setLevel(logging.INFO)
 
 
+def 犬士点数报酬确认():
+    next_button = wait(Template(r"结算_下一步.png", record_pos=(0.366, 0.217), resolution=(1280, 720)))
+    sleep(1)
+    touch(next_button)
+
+
 def start_farm(max_apple_number):
     current_number = 0
 
@@ -30,14 +38,14 @@ def start_farm(max_apple_number):
 
         sleep(25)
 
-        ProcessControl.close_result()
+        ProcessControl.close_result(犬士点数报酬确认)
 
-        current_number = ProcessControl.check_and_eat_apple(Apple.GOLDEN, current_number, max_apple_number)
+        current_number = ProcessControl.check_and_eat_apple(Apple.BLUE, current_number, max_apple_number)
 
         ProcessControl.select_friend(Friend.杀狐_最终_任意)
 
 
 # 程序入口
-max_number = 4
+max_number = 1
 
 start_farm(max_number)

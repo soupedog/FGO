@@ -14,6 +14,20 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
     elif apple == Apple.SILVER:
         target = exists(Template(r"银苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
+    elif apple == Apple.BLUE:
+        # 下拉条滚动到底部
+        sleep(0.5)
+        swipe(((1000, 200)), ((1000, 400)))
+        sleep(0.5)
+        target = exists(Template(r"蓝苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
+                                 resolution=(1280, 720)))
+    elif apple == Apple.BRONZE:
+        # 下拉条滚动到底部
+        sleep(0.5)
+        swipe(((1000, 200)), ((1000, 400)))
+        sleep(0.5)
+        target = exists(Template(r"铜苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
+                                 resolution=(1280, 720)))
     else:
         raise Exception("苹果请使用 Apple 枚举，并且目前不支持铜苹果")
 
@@ -69,7 +83,8 @@ def select_friend(friend_type: Friend):
             sleep(1)
             if refresh_button:
                 touch(refresh_button)
-                conform_button = wait(Template(r"助战_列表更新确定.png", record_pos=(0.154, 0.159), resolution=(1280, 720)))
+                conform_button = wait(
+                    Template(r"助战_列表更新确定.png", record_pos=(0.154, 0.159), resolution=(1280, 720)))
                 sleep(1)
                 touch(conform_button)
             else:
@@ -89,7 +104,7 @@ def block_to_area_ready():
     print("关卡就绪", flush=True)
 
 
-def close_result():
+def close_result(extra_hook):
     qian_ban = wait(Template(r"结算_牵绊.png", record_pos=(-0.351, -0.134), resolution=(1280, 720)), timeout=60,
                     interval=2)
     sleep(1)
@@ -100,6 +115,13 @@ def close_result():
     next_button = wait(Template(r"结算_下一步.png", record_pos=(0.366, 0.217), resolution=(1280, 720)))
     sleep(1)
     touch(next_button)
+
+    if extra_hook is None:
+        pass
+    else:
+        # 活动有额外奖励面板需要的额外结算行为
+        extra_hook()
+
     continue_button = wait(Template(r"结算_连续出击.png", record_pos=(0.155, 0.16), resolution=(1280, 720)))
     sleep(1)
     touch(continue_button)
