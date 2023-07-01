@@ -3,6 +3,8 @@ __author__ = "Xavier"
 
 from airtest.core.api import *
 
+import ProcessControl
+
 
 def start_attack():
     touch(Template(r"指令卡_开始攻击.png", record_pos=(0.384, 0.15), resolution=(1280, 720)))
@@ -69,4 +71,8 @@ def skill(servant, index, target):
         if target == 3:
             touch((960, 450))
     # 等待技能动画
-    sleep(3.5)
+    sleep(0.5)
+    ProcessControl.skip_animation()
+    sleep(1)
+
+

@@ -29,12 +29,12 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
         target = exists(Template(r"铜苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
     else:
-        raise Exception("苹果请使用 Apple 枚举，并且目前不支持铜苹果")
+        raise Exception("苹果请使用 Apple 枚举")
 
     result = previous_number
     if target:
         if previous_number >= max_number:
-            raise Exception("已到达最大苹果限制 %s" % previous_number)
+            raise Exception("已达苹果食用次数上限(%s 次)" % previous_number)
         sleep(1)
         touch(target)
         conform_button = wait(Template(r"体力_苹果决定.png", record_pos=(0.155, 0.159), resolution=(1280, 720)))
@@ -42,7 +42,7 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
         touch(conform_button)
 
         result = previous_number + 1
-        print("吃掉了一个 %s,共计已吃 %d 个苹果" % (apple.value, result))
+        print("食用了 %s， 共计已食用 %d 次" % (apple.value, result))
         # 吃完苹果，预留时间搜索好友头像
         sleep(1)
     return result
