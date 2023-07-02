@@ -20,7 +20,7 @@ def attack_ultimate(servant):
     if servant == 3:
         touch((850, 200))
 
-    sleep(0.5)
+    sleep(0.25)
 
 
 def attack_card(target):
@@ -35,7 +35,7 @@ def attack_card(target):
     if target == 5:
         touch((1150, 500))
 
-    sleep(0.5)
+    sleep(0.25)
 
 
 def attack_single_ultimate_combo(target):
@@ -63,7 +63,7 @@ def skill(servant, index, target):
     touch(conform_button)
 
     if target is not None:
-        sleep(0.5)
+        sleep(0.25)
         if target == 1:
             touch((340, 450))
         if target == 2:
@@ -71,8 +71,6 @@ def skill(servant, index, target):
         if target == 3:
             touch((960, 450))
     # 等待技能动画
-    sleep(0.5)
     ProcessControl.skip_animation()
-    sleep(1)
 
 

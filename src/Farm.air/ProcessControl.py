@@ -17,14 +17,14 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
     elif apple == Apple.BLUE:
         # 下拉条滚动到底部
         sleep(0.5)
-        swipe(((1000, 200)), ((1000, 400)))
+        swipe((1000, 200), (1000, 400))
         sleep(0.5)
         target = exists(Template(r"蓝苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
     elif apple == Apple.BRONZE:
         # 下拉条滚动到底部
         sleep(0.5)
-        swipe(((1000, 200)), ((1000, 400)))
+        swipe((1000, 200), (1000, 400))
         sleep(0.5)
         target = exists(Template(r"铜苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
@@ -92,15 +92,15 @@ def select_friend(friend_type: Friend):
 
 
 def skip_animation():
-    sleep(0.5)
+    sleep(0.25)
     touch((10, 200), times=2)
     sleep(0.25)
     touch((10, 200), times=2)
+    sleep(0.25)
 
 
 def block_to_area_ready():
     wait(Template(r"指令卡_开始攻击.png", record_pos=(0.384, 0.15), resolution=(1280, 720)), timeout=60, interval=2)
-    sleep(2)
     print("关卡就绪", flush=True)
 
 
