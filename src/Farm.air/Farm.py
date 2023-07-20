@@ -15,7 +15,7 @@ if not cli_setup():
     auto_setup(__file__,
                logdir=False,
                devices=[
-                   "android://127.0.0.1:5037/127.0.0.1:65342?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+                   "android://127.0.0.1:5037/127.0.0.1:59615?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
                ],
                project_root="F:/Airtest/FGO/src/Farm.air"
                )
@@ -34,12 +34,12 @@ def start_farm(max_apple_number):
     current_number = 0
 
     while True:
-        RoundTemplates.大英雄狂娜()
+        RoundTemplates.一面自启动换人狂娜双杀狐()
 
         # 取决于宝具动画速度，可以自行调整等待时长
         sleep(25)
 
-        ProcessControl.close_result(犬士点数报酬确认)
+        ProcessControl.close_result(None)
 
         current_number = ProcessControl.check_and_eat_apple(Apple.BLUE, current_number, max_apple_number)
 
@@ -47,6 +47,6 @@ def start_farm(max_apple_number):
 
 
 # 程序入口
-max_number = 0
+max_number = 12
 
 start_farm(max_number)

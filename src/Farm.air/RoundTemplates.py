@@ -64,7 +64,7 @@ def 宇宙凛狗粮冲浪():
     ServantControl.attack_single_ultimate_combo(1)
 
 
-def 大英雄狂娜():
+def 大英雄狂娜双杀狐():
     # 一面
     ProcessControl.block_to_area_ready()
     ServantControl.skill(1, 3, None)
@@ -126,6 +126,42 @@ def 摩根宝石翁双杀狐():
 
     ServantControl.skill(1, 1, None)
     ServantControl.skill(1, 2, 1)
+
+    ServantControl.start_attack()
+    ServantControl.attack_single_ultimate_combo(1)
+
+
+def 一面自启动换人狂娜双杀狐():
+    # 一面
+    ProcessControl.block_to_area_ready()
+    ServantControl.skill(1, 1, None)
+
+    ServantControl.start_attack()
+    ServantControl.attack_single_ultimate_combo(1)
+    # 二面
+    ProcessControl.block_to_area_ready()
+
+    MasterControl.change_my_servant(3, 1, 4)
+
+    ServantControl.skill(1, 1, None)
+    ServantControl.skill(1, 2, None)
+
+    ServantControl.skill(2, 3, 1)
+
+    ServantControl.skill(3, 3, 1)
+
+    ServantControl.start_attack()
+    ServantControl.attack_single_ultimate_combo(1)
+    # 三面
+    ProcessControl.block_to_area_ready()
+
+    ServantControl.skill(2, 1, 1)
+    ServantControl.skill(2, 2, 1)
+
+    ServantControl.skill(3, 1, 1)
+    ServantControl.skill(3, 2, 1)
+
+    ServantControl.skill(1, 1, None)
 
     ServantControl.start_attack()
     ServantControl.attack_single_ultimate_combo(1)
