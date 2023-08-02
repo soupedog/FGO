@@ -9,24 +9,24 @@ from entity.Friend import Friend
 
 def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
     if apple == Apple.GOLDEN:
-        target = exists(Template(r"金苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, -0.032),
+        target = exists(Template(r"金苹果.png", threshold=0.7, rgb=True, record_pos=(-0.209, -0.032),
                                  resolution=(1280, 720)))
     elif apple == Apple.SILVER:
-        target = exists(Template(r"银苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
+        target = exists(Template(r"银苹果.png", threshold=0.7, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
     elif apple == Apple.BLUE:
         # 下拉条滚动到底部
         sleep(0.5)
         swipe((1000, 200), (1000, 400))
         sleep(0.5)
-        target = exists(Template(r"蓝苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
+        target = exists(Template(r"蓝苹果.png", threshold=0.7, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
     elif apple == Apple.BRONZE:
         # 下拉条滚动到底部
         sleep(0.5)
         swipe((1000, 200), (1000, 400))
         sleep(0.5)
-        target = exists(Template(r"铜苹果.png", threshold=0.8, rgb=True, record_pos=(-0.209, 0.084),
+        target = exists(Template(r"铜苹果.png", threshold=0.7, rgb=True, record_pos=(-0.209, 0.084),
                                  resolution=(1280, 720)))
     else:
         raise Exception("苹果请使用 Apple 枚举")

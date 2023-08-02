@@ -37,7 +37,7 @@ def start_farm(max_apple_number):
         RoundTemplates.宇宙凛狗粮冲浪()
 
         # 取决于宝具动画速度，可以自行调整等待时长
-        sleep(25)
+        sleep(20)
 
         ProcessControl.close_result(None)
 
