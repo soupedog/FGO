@@ -52,7 +52,7 @@ def select_friend(friend_type: Friend):
     while True:
         if friend_type == Friend.C呆_最终_牵绊:
             friend = exists(
-                Template(r"DL_C呆_最终_牵绊.png", threshold=0.85, rgb=True, record_pos=(-0.379, -0.057),
+                Template(r"DL_C呆_最终_牵绊.png", threshold=0.80, rgb=True, record_pos=(-0.379, -0.057),
                          resolution=(1280, 720)))
         elif friend_type == Friend.C呆_最终_量子:
             friend = exists(
@@ -60,7 +60,7 @@ def select_friend(friend_type: Friend):
                          resolution=(1280, 720)))
         elif friend_type == Friend.C呆_最终_任意:
             friend = exists(
-                Template(r"DL_C呆_最终_任意.png", threshold=0.85, rgb=True, record_pos=(-0.379, -0.057),
+                Template(r"DL_C呆_最终_任意.png", threshold=0.80, rgb=True, record_pos=(-0.379, -0.057),
                          resolution=(1280, 720)))
         elif friend_type == Friend.杀狐_最终_牵绊:
             friend = exists(

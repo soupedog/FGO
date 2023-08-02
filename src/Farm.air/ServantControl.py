@@ -42,6 +42,8 @@ def attack_single_ultimate_combo(target):
     attack_ultimate(target)
     attack_card(1)
     attack_card(2)
+    # 默认宝具动画至少有 5 秒
+    sleep(5)
 
 
 def skill(servant, index, target):
