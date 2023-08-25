@@ -63,14 +63,14 @@ def 宇宙凛狗粮冲浪():
     ServantControl.start_attack()
     ServantControl.attack_single_ultimate_combo(1)
 
-
+# 晕人服限定
 def 大英雄狂娜双杀狐():
     # 一面
     ProcessControl.block_to_area_ready()
-    ServantControl.skill(1, 3, None)
+    # ServantControl.skill(1, 3, None)
 
     ServantControl.start_attack()
-    ServantControl.attack_single_ultimate_combo(1)
+    ServantControl.attack_single_ultimate_combo(2)
     # 二面
     ProcessControl.block_to_area_ready()
 
@@ -81,10 +81,16 @@ def 大英雄狂娜双杀狐():
 
     ServantControl.skill(3, 3, 1)
 
+    MasterControl.master_skill(1, None)
+
     ServantControl.start_attack()
     ServantControl.attack_single_ultimate_combo(1)
     # 三面
     ProcessControl.block_to_area_ready()
+
+    # 1 号位晕眩
+    MasterControl.change_enemy(1)
+    MasterControl.master_skill(2, None)
 
     ServantControl.skill(2, 1, 1)
     ServantControl.skill(2, 2, 1)

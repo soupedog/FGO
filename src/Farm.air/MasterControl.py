@@ -6,6 +6,19 @@ from airtest.core.api import *
 import ProcessControl
 
 
+def change_enemy(index):
+    sleep(0.5)
+
+    if index == 1:
+        touch((50, 50))
+    if index == 2:
+        touch((300, 50))
+    if index == 3:
+        touch((550, 50))
+
+    sleep(0.5)
+
+
 def master_skill(index, target):
     touch((1190, 310))
     sleep(0.5)

@@ -96,7 +96,7 @@ def skip_animation():
     touch((10, 200), times=2)
     sleep(0.25)
     touch((10, 200), times=2)
-    sleep(0.25)
+    sleep(0.5)
 
 
 def block_to_area_ready():
