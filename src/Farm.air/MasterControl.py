@@ -73,4 +73,4 @@ def change_my_servant(skill_index, old_servant_index, new_servant_index):
     change_button = wait(Template(r"技能_进行更替.png", record_pos=(-0.001, 0.208), resolution=(1280, 720)))
     touch(change_button)
     # 等待换人动画
-    sleep(5.5)
+    sleep(8.5)

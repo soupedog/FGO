@@ -105,14 +105,15 @@ def block_to_area_ready():
 
 
 def close_result(extra_hook):
-    qian_ban = wait(Template(r"结算_牵绊.png", record_pos=(-0.351, -0.134), resolution=(1280, 720)), timeout=60,
+    qian_ban = wait(Template(r"结算_牵绊.png", threshold=0.7, record_pos=(-0.351, -0.134), resolution=(1280, 720)),
+                    timeout=60,
                     interval=2)
     sleep(1)
     touch(qian_ban)
-    exp = wait(Template(r"结算_经验.png", record_pos=(0.08, -0.118), resolution=(1280, 720)))
+    exp = wait(Template(r"结算_经验.png", threshold=0.7, record_pos=(0.08, -0.118), resolution=(1280, 720)))
     sleep(1)
     touch(exp)
-    next_button = wait(Template(r"结算_下一步.png", record_pos=(0.366, 0.217), resolution=(1280, 720)))
+    next_button = wait(Template(r"结算_下一步.png", threshold=0.7, record_pos=(0.366, 0.217), resolution=(1280, 720)))
     sleep(1)
     touch(next_button)
 
