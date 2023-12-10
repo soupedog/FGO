@@ -7,9 +7,13 @@ import ProcessControl
 
 
 def start_attack():
-    touch(Template(r"指令卡_开始攻击.png", record_pos=(0.384, 0.15), resolution=(1280, 720)))
+    touch(
+        Template(r"指令卡_开始攻击.png", record_pos=(0.384, 0.15), resolution=(1280, 720))
+    )
     # 等待攻击取消按钮
-    wait(Template(r"指令卡_返回.png", record_pos=(0.436, 0.25), resolution=(1280, 720)))
+    wait(
+        Template(r"指令卡_返回.png", record_pos=(0.436, 0.25), resolution=(1280, 720))
+    )
 
 
 def attack_ultimate(servant):
@@ -61,7 +65,9 @@ def skill(servant, index, target):
     touch((point_x, 580))
 
     # 等待确认按钮
-    conform_button = wait(Template(r"技能_决定.png", record_pos=(0.166, 0.05), resolution=(1280, 720)))
+    conform_button = wait(
+        Template(r"技能_决定.png", record_pos=(0.166, 0.05), resolution=(1280, 720))
+    )
     touch(conform_button)
 
     if target is not None:
@@ -74,5 +80,3 @@ def skill(servant, index, target):
             touch((960, 450))
     # 等待技能动画
     ProcessControl.skip_animation()
-
-
