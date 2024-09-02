@@ -106,7 +106,7 @@ def 大英雄狂娜双杀狐():
     ServantControl.start_attack()
     ServantControl.attack_single_ultimate_combo(1)
 
-
+# 晕眩服
 def 狂娜双杀狐奥伯龙():
     # 一面
     ProcessControl.block_to_area_ready()
@@ -142,6 +142,9 @@ def 狂娜双杀狐奥伯龙():
     ServantControl.skill(2, 1, None)
     ServantControl.skill(2, 2, 1)
     ServantControl.skill(2, 3, 1)
+
+    # 群体加工
+    MasterControl.master_skill(1, None)
 
     ServantControl.start_attack()
     ServantControl.attack_single_ultimate_combo(1)

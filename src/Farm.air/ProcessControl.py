@@ -3,6 +3,7 @@ __author__ = "Xavier"
 
 from airtest.core.api import *
 
+import ProcessControl
 from entity.Apple import Apple
 from entity.Friend import Friend
 
@@ -60,6 +61,7 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
 
 def select_friend(friend_type: Friend):
     while True:
+        ProcessControl.skip_system_friend(1)
         if friend_type == Friend.C呆_最终_牵绊:
             friend_image = Template(r"DL_C呆_最终_牵绊.png", threshold=0.80, rgb=True, record_pos=(-0.379, -0.057),
                                     resolution=(1280, 720))
@@ -99,6 +101,24 @@ def select_friend(friend_type: Friend):
                 touch(conform_button)
             else:
                 sleep(8)
+
+
+# 助战选择界面下滚跳过系统助战()
+def skip_system_friend(amount):
+    # 滚太多容易不是好友无意义，默认最长滚过 5 个
+    height = 150
+
+    if amount == 1:
+        # 存在最小滚动单位，难以精确控制，实际上是滚过了 2 个位置
+        height = 50
+    if amount == 2:
+        height = 60
+    if amount == 3:
+        height = 90
+    if amount == 4:
+        height = 120
+
+    swipe((1250, 200), (1250, 200 + height))
 
 
 def skip_animation():
