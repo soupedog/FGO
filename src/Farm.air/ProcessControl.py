@@ -119,6 +119,7 @@ def skip_system_friend(amount):
         height = 120
 
     swipe((1250, 200), (1250, 200 + height))
+    sleep(1)
 
 
 def skip_animation():
