@@ -3,7 +3,6 @@ __author__ = "Xavier"
 
 from airtest.core.api import *
 
-import ProcessControl
 from entity.Apple import Apple
 from entity.Friend import Friend
 
@@ -61,7 +60,7 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
 
 def select_friend(friend_type: Friend):
     while True:
-        ProcessControl.skip_system_friend(1)
+        # ProcessControl.skip_system_friend(1)
         if friend_type == Friend.C呆_最终_牵绊:
             friend_image = Template(r"DL_C呆_最终_牵绊.png", threshold=0.80, rgb=True, record_pos=(-0.379, -0.057),
                                     resolution=(1280, 720))
@@ -161,7 +160,7 @@ def close_result(extra_hook):
         extra_hook()
 
     continue_button = wait(
-        Template(r"结算_连续出击.png", record_pos=(0.155, 0.16), resolution=(1280, 720))
+        Template(r"结算_连续出击.png", threshold=0.85, resolution=(1280, 720))
     )
     sleep(1)
     touch(continue_button)

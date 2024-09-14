@@ -24,6 +24,9 @@ def 达芬奇QP冲浪():
     ServantControl.attack_single_ultimate_combo(1)
     # 三面
     ProcessControl.block_to_area_ready()
+
+    ServantControl.skill(1, 3, None)
+
     ServantControl.start_attack()
     ServantControl.attack_single_ultimate_combo(1)
 
