@@ -8,11 +8,11 @@ import ProcessControl
 
 def start_attack():
     touch(
-        Template(r"指令卡_开始攻击.png", record_pos=(0.384, 0.15), resolution=(1280, 720))
+        Template(r"指令卡_开始攻击.png")
     )
     # 等待攻击取消按钮
     wait(
-        Template(r"指令卡_返回.png", record_pos=(0.436, 0.25), resolution=(1280, 720))
+        Template(r"指令卡_返回.png")
     )
 
 
@@ -66,7 +66,7 @@ def skill(servant, index, target):
 
     # 等待确认按钮
     conform_button = wait(
-        Template(r"技能_决定.png", record_pos=(0.166, 0.05), resolution=(1280, 720))
+        Template(r"技能_决定.png")
     )
     touch(conform_button)
 

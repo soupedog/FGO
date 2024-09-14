@@ -26,7 +26,7 @@ logger.setLevel(logging.INFO)
 
 def 活动点数报酬确认():
     next_button = wait(
-        Template(r"结算_下一步.png", record_pos=(0.366, 0.217), resolution=(1280, 720))
+        Template(r"结算_下一步.png")
     )
     sleep(1)
     touch(next_button)
@@ -50,7 +50,6 @@ def start_farm(max_apple_number):
 
 
 # 程序入口
-max_number = 0
+max_number = 1
 
 start_farm(max_number)
-
