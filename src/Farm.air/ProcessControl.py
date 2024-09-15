@@ -7,40 +7,16 @@ from entity.Apple import Apple
 from entity.Friend import Friend
 
 
-def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
-    if apple == Apple.GOLDEN:
-        target = exists(
-            Template(r"金苹果.png", rgb=True)
-        )
-    elif apple == Apple.SILVER:
-        target = exists(
-            Template(r"银苹果.png", rgb=True)
-        )
-    elif apple == Apple.BLUE:
-        # 下拉条滚动到底部
-        sleep(0.5)
-        swipe((1000, 200), (1000, 400))
-        sleep(0.5)
-        target = exists(
-            Template(r"蓝苹果.png", rgb=True)
-        )
-    elif apple == Apple.BRONZE:
-        # 下拉条滚动到底部
-        sleep(0.5)
-        swipe((1000, 200), (1000, 400))
-        sleep(0.5)
-        target = exists(
-            Template(r"铜苹果.png", rgb=True)
-        )
-    else:
-        raise Exception("苹果请使用 Apple 枚举")
+def check_and_eat_apple(apple_type: Apple, previous_number, max_number) -> int:
+    apple = try_to_get_apple_position(apple_type)
+    is_apple_exist = apple
 
     result = previous_number
-    if target:
+    if is_apple_exist:
         if previous_number >= max_number:
             raise Exception("已达苹果食用次数上限(%s 次)" % previous_number)
         sleep(1)
-        touch(target)
+        touch(apple)
         conform_button = wait(
             Template(r"体力_苹果决定.png")
         )
@@ -48,36 +24,49 @@ def check_and_eat_apple(apple: Apple, previous_number, max_number) -> int:
         touch(conform_button)
 
         result = previous_number + 1
-        print("食用了 %s， 共计已食用 %d 次" % (apple.value, result))
+        print("食用了 %s， 共计已食用 %d 次" % (apple_type.value, result))
         # 吃完苹果，预留时间搜索好友头像
         sleep(1)
+    else:
+        print("未搜索到(%s)，本轮无需吃苹果" % apple_type.name)
     return result
+
+
+def try_to_get_apple_position(apple: Apple):
+    if apple == Apple.GOLDEN:
+        apple_image = Template(r"金苹果.png", rgb=True, resolution="0.6")
+    elif apple == Apple.SILVER:
+        apple_image = Template(r"银苹果.png", rgb=True, resolution="0.6")
+    elif apple == Apple.BLUE:
+        # 下拉条滚动到底部
+        sleep(0.5)
+        swipe((1000, 200), (1000, 400))
+        sleep(0.5)
+        apple_image = Template(r"蓝苹果.png", rgb=True, resolution="0.6")
+    elif apple == Apple.BRONZE:
+        # 下拉条滚动到底部
+        sleep(0.5)
+        swipe((1000, 200), (1000, 400))
+        sleep(0.5)
+        apple_image = Template(r"铜苹果.png", rgb=True, resolution="0.6")
+    else:
+        raise Exception("苹果请使用 Apple 枚举")
+    return exists(apple_image)
 
 
 def select_friend(friend_type: Friend):
     while True:
         # ProcessControl.skip_system_friend(1)
-        if friend_type == Friend.C呆_最终_牵绊:
-            friend_image = Template(r"DL_C呆_最终_牵绊.png", threshold=0.80, rgb=True)
-        elif friend_type == Friend.C呆_最终_量子:
-            friend_image = Template(r"DL_C呆_最终_量子.png", threshold=0.85, rgb=True)
-        elif friend_type == Friend.C呆_最终_任意:
-            friend_image = Template(r"DL_C呆_最终_任意.png", threshold=0.80, rgb=True)
-        elif friend_type == Friend.杀狐_最终_牵绊:
-            friend_image = Template(r"DL_杀狐_最终_牵绊.png", threshold=0.85, rgb=True)
-        elif friend_type == Friend.杀狐_最终_任意:
-            friend_image = Template(r"DL_杀狐_最终_任意.png", threshold=0.85, rgb=True)
-        else:
-            raise Exception("好友助战类型有误")
-
-        friend = exists(friend_image)
+        friend = try_to_get_friend_position(friend_type)
+        is_friend_exist = friend
 
         sleep(1)
 
-        if friend:
+        if is_friend_exist:
             touch(friend)
             break
         else:
+            print("未搜索到(%s),尝试刷新好友列表" % friend_type.name)
             refresh_button = exists(
                 Template(r"助战_列表更新.png")
             )
@@ -91,6 +80,23 @@ def select_friend(friend_type: Friend):
                 touch(conform_button)
             else:
                 sleep(8)
+                print("等待好友列表冷却时间")
+
+
+def try_to_get_friend_position(friend_type):
+    if friend_type == Friend.C呆_最终_牵绊:
+        friend_image = Template(r"DL_C呆_最终_牵绊.png", threshold=0.80, rgb=True)
+    elif friend_type == Friend.C呆_最终_量子:
+        friend_image = Template(r"DL_C呆_最终_量子.png", threshold=0.85, rgb=True)
+    elif friend_type == Friend.C呆_最终_任意:
+        friend_image = Template(r"DL_C呆_最终_任意.png", threshold=0.80, rgb=True)
+    elif friend_type == Friend.杀狐_最终_牵绊:
+        friend_image = Template(r"DL_杀狐_最终_牵绊.png", threshold=0.85, rgb=True)
+    elif friend_type == Friend.杀狐_最终_任意:
+        friend_image = Template(r"DL_杀狐_最终_任意.png", threshold=0.85, rgb=True)
+    else:
+        raise Exception("好友助战类型有误")
+    return exists(friend_image)
 
 
 # 助战选择界面下滚跳过系统助战()
@@ -142,9 +148,7 @@ def close_result(extra_hook):
     sleep(1)
     touch(next_button)
 
-    if extra_hook is None:
-        pass
-    else:
+    if extra_hook is not None:
         # 活动有额外奖励面板需要的额外结算行为
         extra_hook()
 
