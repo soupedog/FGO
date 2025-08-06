@@ -61,21 +61,10 @@ def start_farm(max_apple_number):
 
         current_number = ProcessControl.check_and_eat_apple(Apple.BLUE, current_number, max_apple_number)
 
-        ProcessControl.select_friend(Friend.杀狐_最终_任意)
+        ProcessControl.select_friend(Friend.杀狐_最终_牵绊)
 
 
+# 吃完 3 个对应苹果后结束
+max_number = 3
 # 程序入口
-max_number = 1
-
 start_farm(max_number)
-# MasterControl.change_my_servant(3, 2, 6)
-# ProcessControl.check_and_eat_apple(Apple.BLUE, 0, 1)
-
-# print("AAAAAAAA")
-# pp = ProcessControl.select_friend(Friend.C呆_最终_任意)
-# print(pp)
-# touch(pp)
-
-
-
-
