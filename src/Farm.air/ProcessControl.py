@@ -91,7 +91,7 @@ def try_to_get_friend_position(friend_type):
     elif friend_type == Friend.C呆_最终_任意:
         friend_image = Template(r"DL_C呆_最终_任意.png", threshold=0.8)
     elif friend_type == Friend.杀狐_最终_牵绊:
-        friend_image = Template(r"DL_杀狐_最终_牵绊.png", threshold=0.8)
+        friend_image = Template(r"DL_杀狐_最终_牵绊.png", threshold=0.9)
     elif friend_type == Friend.杀狐_最终_任意:
         friend_image = Template(r"DL_杀狐_最终_任意.png", threshold=0.8)
     else:
@@ -134,7 +134,9 @@ def block_to_area_ready():
 
 def close_result(extra_hook):
     qian_ban = wait(
-        Template(r"结算_牵绊展示页2.png", threshold=0.85), timeout=60, interval=2)
+        Template(r"结算_牵绊展示页2.png"),
+        timeout=60, interval=2
+    )
     sleep(1)
     # 展示牵绊页面，点击下左上角
     touch((10, 200), times=1)
@@ -152,7 +154,7 @@ def close_result(extra_hook):
         extra_hook()
 
     continue_button = wait(
-        Template(r"结算_连续出击.png", threshold=0.85)
+        Template(r"结算_连续出击.png", record_pos=(0.059, 0.173), resolution=(1280, 720), target_pos=8)
     )
     sleep(1)
     touch(continue_button)

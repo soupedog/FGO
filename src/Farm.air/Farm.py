@@ -6,7 +6,6 @@ from airtest.core.api import *
 
 import ProcessControl
 import RoundTemplates
-import MasterControl
 from entity.Apple import Apple
 from entity.Friend import Friend
 
@@ -68,3 +67,4 @@ def start_farm(max_apple_number):
 max_number = 3
 # 程序入口
 start_farm(max_number)
+
