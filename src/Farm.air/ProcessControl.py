@@ -85,15 +85,15 @@ def select_friend(friend_type: Friend):
 
 def try_to_get_friend_position(friend_type):
     if friend_type == Friend.C呆_最终_牵绊:
-        friend_image = Template(r"DL_C呆_最终_牵绊.png", threshold=0.80, rgb=True)
+        friend_image = Template(r"DL_C呆_最终_牵绊.png", threshold=0.8)
     elif friend_type == Friend.C呆_最终_量子:
-        friend_image = Template(r"DL_C呆_最终_量子.png", threshold=0.85, rgb=True)
+        friend_image = Template(r"DL_C呆_最终_量子.png", threshold=0.8)
     elif friend_type == Friend.C呆_最终_任意:
-        friend_image = Template(r"DL_C呆_最终_任意.png", threshold=0.80, rgb=True)
+        friend_image = Template(r"DL_C呆_最终_任意.png", threshold=0.8)
     elif friend_type == Friend.杀狐_最终_牵绊:
-        friend_image = Template(r"DL_杀狐_最终_牵绊.png", threshold=0.85, rgb=True)
+        friend_image = Template(r"DL_杀狐_最终_牵绊.png", threshold=0.8)
     elif friend_type == Friend.杀狐_最终_任意:
-        friend_image = Template(r"DL_杀狐_最终_任意.png", threshold=0.85, rgb=True)
+        friend_image = Template(r"DL_杀狐_最终_任意.png", threshold=0.8)
     else:
         raise Exception("好友助战类型有误")
     return exists(friend_image)
@@ -134,14 +134,13 @@ def block_to_area_ready():
 
 def close_result(extra_hook):
     qian_ban = wait(
-        Template(r"结算_牵绊.png", threshold=0.85), timeout=60, interval=2)
+        Template(r"结算_牵绊展示页2.png", threshold=0.85), timeout=60, interval=2)
     sleep(1)
-    touch(qian_ban)
-    exp = wait(
-        Template(r"结算_经验.png", threshold=0.85)
-    )
+    # 展示牵绊页面，点击下左上角
+    touch((10, 200), times=1)
+    # 展示经验页面，点击下左上角
     sleep(1)
-    touch(exp)
+    touch((10, 200), times=1)
     next_button = wait(
         Template(r"结算_下一步.png", threshold=0.85)
     )

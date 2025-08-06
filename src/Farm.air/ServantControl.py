@@ -11,9 +11,7 @@ def start_attack():
         Template(r"指令卡_开始攻击.png")
     )
     # 等待攻击取消按钮
-    wait(
-        Template(r"指令卡_返回.png")
-    )
+    sleep(0.5)
 
 
 def attack_ultimate(servant):
@@ -64,11 +62,7 @@ def skill(servant, index, target):
 
     touch((point_x, 580))
 
-    # 等待确认按钮
-    conform_button = wait(
-        Template(r"技能_决定.png")
-    )
-    touch(conform_button)
+    sleep(0.25)
 
     if target is not None:
         sleep(0.25)

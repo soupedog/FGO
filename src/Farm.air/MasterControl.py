@@ -31,10 +31,7 @@ def master_skill(index, target):
         touch((1080, 310))
 
     # 等待确认按钮
-    conform_button = wait(
-        Template(r"技能_决定.png", record_pos=(0.165, 0.049))
-    )
-    touch(conform_button)
+    sleep(0.5)
 
     if target is not None:
         sleep(0.5)
@@ -60,10 +57,7 @@ def change_my_servant(skill_index, old_servant_index, new_servant_index):
         touch((1080, 310))
 
     # 等待确认按钮
-    conform_button = wait(
-        Template(r"技能_决定.png", record_pos=(0.165, 0.049))
-    )
-    touch(conform_button)
+    sleep(0.5)
 
     old_servant_point_x = 140 + (old_servant_index - 1) * 200
     new_servant_point_x = 140 + (new_servant_index - 1) * 200
@@ -78,5 +72,6 @@ def change_my_servant(skill_index, old_servant_index, new_servant_index):
         Template(r"技能_进行更替.png", record_pos=(-0.001, 0.208))
     )
     touch(change_button)
-    # 等待换人动画
-    sleep(8.5)
+    # 等待换人动画，并等待关卡重新就绪
+    sleep(2)
+    ProcessControl.block_to_area_ready()
