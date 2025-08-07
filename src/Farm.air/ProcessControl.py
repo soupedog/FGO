@@ -154,7 +154,7 @@ def close_result(extra_hook):
         extra_hook()
 
     continue_button = wait(
-        Template(r"结算_连续出击.png", record_pos=(0.059, 0.173), resolution=(1280, 720), target_pos=8)
+        Template(r"结算_连续出击.png", threshold=0.85, record_pos=(0.059, 0.173), resolution=(1280, 720), target_pos=8)
     )
     sleep(1)
     touch(continue_button)

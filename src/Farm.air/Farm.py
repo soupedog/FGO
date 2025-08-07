@@ -14,7 +14,7 @@ from entity.Friend import Friend
 auto_setup(__file__,
            logdir=False,
            devices=[
-               "android://127.0.0.1:5037/127.0.0.1:65513?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
+               "android://127.0.0.1:5037/127.0.0.1:50260?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH",
            ],
            project_root="E:/Airtest/FGO/src/Farm.air"
            )
@@ -67,4 +67,3 @@ def start_farm(max_apple_number):
 max_number = 3
 # 程序入口
 start_farm(max_number)
-
